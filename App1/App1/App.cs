@@ -15,14 +15,14 @@ namespace App1
         // just a singleton pattern so I can have the concept of an app instance 
         static volatile App _Instance;
         static object _SyncRoot = new Object();
-
+		
         public static App Instance
         {
             get
             {
                 if (_Instance == null)
                 {
-                    lock (_SyncRoot)
+                    lock (_SyncRoot) 
                     {
                         if (_Instance == null)
                         {
@@ -30,7 +30,7 @@ namespace App1
                             _Instance.OAuthSettings =
                                 new OAuthSettings(
                                   clientId: facebookAppId,
-                                  scope: "basic",
+                                  scope: "",
                                   authorizeUrl: "https://m.facebook.com/dialog/oauth/",
                                   redirectUrl: "http://www.facebook.com/connect/login_success.html");
                         }
@@ -67,11 +67,11 @@ namespace App1
         {
             _Token = token;
 
-            // broadcast a message that authentication was successful 
+			// broadcast a message that authentication was successful 
             MessagingCenter.Send<App>(this, "Authenticated");
         }
 
-        public Action SuccessfulLoginAction
+		public Action SuccessfulLoginAction
         {
             get
             {
