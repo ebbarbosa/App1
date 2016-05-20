@@ -39,8 +39,8 @@ namespace App1.Droid
                     // The user cancelled
                 }
             };
-
-            activity.StartActivity(auth.GetUI(activity));
+			var ui = auth.GetUI (this.Context);	
+            activity.StartActivity(ui);
         }
     }
 }

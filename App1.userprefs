@@ -1,0 +1,20 @@
+﻿<Properties StartupItem="App1/App1.Droid/App1.Droid.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Marshmallow)" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="App1/App1/App.cs">
+    <Files>
+      <File FileName="App1/App1.Droid/LoginPageRenderer.cs" Line="20" Column="38" />
+      <File FileName="App1/App1/App.cs" Line="40" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/ebarbosa/dev/mobile/App1/App1/App1.Droid/LoginPageRenderer.cs" line="42" column="1" />
+      <Breakpoint file="/Users/ebarbosa/dev/mobile/App1/App1/App1.Droid/LoginPageRenderer.cs" line="31" column="33" />
+      <Breakpoint file="/Users/ebarbosa/dev/mobile/App1/App1/App1/App.cs" line="40" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>App1/App1.UWP/App1.UWP.csproj</String>
+  </DisabledProjects>
+</Properties>

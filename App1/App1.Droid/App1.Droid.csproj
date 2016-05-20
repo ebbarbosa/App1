@@ -132,12 +132,6 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\App1\App1.csproj">
-      <Name>App1</Name>
-      <Project>{903922E4-C61E-467B-95D6-B20D429E15DF}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\values\strings.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
@@ -157,4 +151,10 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <ProjectReference Include="..\App1\App1.csproj">
+      <Project>{903922E4-C61E-467B-95D6-B20D429E15DF}</Project>
+      <Name>App1</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

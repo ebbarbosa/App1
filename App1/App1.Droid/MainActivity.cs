@@ -16,7 +16,7 @@ namespace App1.Droid
         {
             base.OnCreate(bundle);
             Xamarin.Forms.Forms.Init(this, bundle);
-            SetPage(App.Instance.GetMainPage());			
+			LoadApplication(App.Instance.GetMainPage ());			
         }
     }
 }

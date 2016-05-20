@@ -45,11 +45,13 @@ namespace App1
         NavigationPage _NavPage;
 
 
-        public Page GetMainPage()
+        public App GetMainPage()
         {
             var profilePage = new ProfilePage();
             _NavPage = new NavigationPage(profilePage);
-            return _NavPage;
+            MainPage = _NavPage;
+
+			return this;
         }
 
         public bool IsAuthenticated
