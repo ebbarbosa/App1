@@ -39,7 +39,9 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <NoStdLib>true</NoStdLib>
     <AndroidSigningKeyStore>/Users/ebarbosa/.local/share/Xamarin/Mono for Android/debug.keystore</AndroidSigningKeyStore>
-    <AndroidSigningKeyAlias>f3Y8cC5HtZW3HAKzQBbco/y3n2A=</AndroidSigningKeyAlias>
+    <AndroidSigningStorePass>android</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>androiddebugkey</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>android</AndroidSigningKeyPass>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -108,6 +110,8 @@
     <Reference Include="Xamarin.Forms.Platform">
       <HintPath>..\..\packages\Xamarin.Forms.2.2.0.31\lib\MonoAndroid10\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LoginPageRenderer.cs" />

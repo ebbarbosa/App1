@@ -14,9 +14,9 @@ namespace App1.Droid
     {
         protected override void OnCreate(Bundle bundle)
         {
-            base.OnCreate(bundle);
+			base.OnCreate (bundle);
             Xamarin.Forms.Forms.Init(this, bundle);
-			LoadApplication(App.Instance.GetMainPage ());			
+			LoadApplication(App.Instance);			
         }
     }
 }

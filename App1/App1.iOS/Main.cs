@@ -7,6 +7,7 @@ using UIKit;
 
 namespace App1.iOS
 {
+	//[Register("AppDelegate")]
     public class Application
     {
         // This is the main entry point of the application.

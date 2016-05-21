@@ -7,94 +7,70 @@ using Xamarin.Auth;
 
 namespace App1
 {
-    public class App : Application
-    {
-        //const string facebookAppId = "1609088969410340"; prd
-        const string facebookAppId = "1610747612577809";
+	public class App : Application
+	{
+		//const string facebookAppId = "231850827189753"; prd
+		const string facebookAppId = "231850827189753";
 
-        // just a singleton pattern so I can have the concept of an app instance 
-        static volatile App _Instance;
-        static object _SyncRoot = new Object();
-		
-        public static App Instance
-        {
-            get
-            {
-                if (_Instance == null)
-                {
-                    lock (_SyncRoot) 
-                    {
-                        if (_Instance == null)
-                        {
-                            _Instance = new App();
-                            _Instance.OAuthSettings =
-                                new OAuthSettings(
-                                  clientId: facebookAppId,
-                                  scope: "",
-                                  authorizeUrl: "https://m.facebook.com/dialog/oauth/",
-                                  redirectUrl: "http://www.facebook.com/connect/login_success.html");
-                        }
-                    }
-                }
+		// just a singleton pattern so I can have the concept of an app instance
+		static volatile App _Instance;
+		static object _SyncRoot = new Object ();
 
-                return _Instance;
-            }
-        }
+		public static App Instance {
+			get {
+				if (_Instance == null) {
+					lock (_SyncRoot) {
+						if (_Instance == null) {
 
-        public OAuthSettings OAuthSettings { get; private set; }
-        NavigationPage _NavPage;
+							_Instance = new App ();
 
+							_Instance.OAuthSettings =
+								new OAuthSettings (
+									clientId: "231850827189753",
+									scope: "public_profile,email,user_about_me,user_friends",
+								authorizeUrl: "https://m.facebook.com/dialog/oauth/",
+								redirectUrl: "http://localhost:85/app1" //"http://www.facebook.com/connect/login_success.html"
+								);
 
-        public App GetMainPage()
-        {
-            var profilePage = new ProfilePage();
-            _NavPage = new NavigationPage(profilePage);
-            MainPage = _NavPage;
+							var profilePage = new ProfilePage ();
+							_Instance._NavPage = new NavigationPage (profilePage);
+							_Instance.MainPage = _Instance._NavPage;
+						}
+					}
+				}
 
-			return this;
-        }
+				return _Instance;
+			}
+		}
 
-        public bool IsAuthenticated
-        {
-            get { return !string.IsNullOrWhiteSpace(_Token); }
-        }
+		public OAuthSettings OAuthSettings { get; private set; }
 
-        string _Token;
-        public string Token
-        {
-            get { return _Token; }
-        }
+		NavigationPage _NavPage;
 
-        public void SaveToken(string token)
-        {
-            _Token = token;
+		public bool IsAuthenticated {
+			get { return !string.IsNullOrWhiteSpace (_Token); }
+		}
+
+		string _Token;
+
+		public string Token {
+			get { return _Token; }
+		}
+
+		public void SaveToken (string token)
+		{
+			_Token = token;
 
 			// broadcast a message that authentication was successful 
-            MessagingCenter.Send<App>(this, "Authenticated");
-        }
+			MessagingCenter.Send<App> (this, "Authenticated");
 
-		public Action SuccessfulLoginAction
-        {
-            get
-            {
-                return new Action(() => _NavPage.Navigation.PopModalAsync());
-            }
-        }
-    }
+			//_NavPage.Navigation.PushAsync (new CourtPage ());
+		}
 
-    public class OAuthSettings
-    {
-        public readonly Uri AuthorizeUrl;
-        public readonly string ClientId;
-        public readonly string Scope;
-        public readonly Uri RedirectUrl;
-
-        public OAuthSettings(string clientId, string scope, string authorizeUrl, string redirectUrl)
-        {
-            ClientId = clientId;
-            Scope = scope;
-            AuthorizeUrl = new Uri(authorizeUrl);
-            RedirectUrl = new Uri(redirectUrl);
-        }
-    }
+		public Action SuccessfulLoginAction {
+			get {
+				return new Action (() => _NavPage.Navigation.PopModalAsync ());
+			}
+		}
+	}
 }

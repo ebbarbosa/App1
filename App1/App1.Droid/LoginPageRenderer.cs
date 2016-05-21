@@ -1,6 +1,6 @@
-using Android.App;
 using App1;
 using App1.Droid;
+using Android.App;
 using Xamarin.Auth;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
@@ -12,7 +12,7 @@ namespace App1.Droid
     public class LoginPageRenderer : PageRenderer
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Page> e)
-        {
+        {	
             base.OnElementChanged(e);
 
             // this is a ViewGroup - so should be able to load an AXML file and FindView<>
