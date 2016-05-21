@@ -29,7 +29,8 @@ namespace App1
 									clientId: "231850827189753",
 									scope: "public_profile,email,user_about_me,user_friends",
 								authorizeUrl: "https://m.facebook.com/dialog/oauth/",
-								redirectUrl: "http://localhost:85/app1" //"http://www.facebook.com/connect/login_success.html"
+								redirectUrl: "https://localhost:85/app1" 
+									//"http://www.facebook.com/connect/login_success.html"
 								);
 
 							var profilePage = new ProfilePage ();
